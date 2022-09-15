@@ -4,7 +4,7 @@ import Text from '../components/text/text'
 import ExploreBDHeader from '../components/ExploreBD-header';
 import { spacing } from './../theme/spacing';
 import { colors } from './../theme/colors';
-import { PLANET_LIST } from '../data/planet-list';
+import { DISTRICT_LIST } from '../data/data';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -14,9 +14,9 @@ export default function Home({ navigation }) {
             <ExploreBDHeader />
             <FlatList
                 contentContainerStyle={styles.list}
-                data={PLANET_LIST}
+                data={DISTRICT_LIST}
                 keyExtractor={(item) => item.name}
-                renderItem={({ item }) => {
+                renderItem={({ item, index }) => {
                     const { name, color } = item;
                     return (
                         <Pressable onPress={() => {
@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
                         }} style={styles.item}>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <View style={[styles.circle, { backgroundColor: color }]} />
-                                <Text preset='h3' style={styles.itemName}>{name}</Text>
+                                <Text preset='h3' style={styles.itemName}>{index + 1} - {name}</Text>
                             </View>
                             <View>
                                 <AntDesign name="right" size={18} color="white" />

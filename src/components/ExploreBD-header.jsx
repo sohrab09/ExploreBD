@@ -6,7 +6,7 @@ import { colors } from '../theme/colors';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function ExploreBDHeader({ backBtn, title = 'ExploreBD' }) {
+export default function ExploreBDHeader({ backBtn, title = 'Explore BD' }) {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
