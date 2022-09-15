@@ -1,9 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { colors } from './src/theme/colors';
-import { spacing } from './src/theme/spacing';
 import { useFonts } from 'expo-font'
-import Text from './src/components/text/text';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from 'react-native';
+import Home from './src/screens/Home';
+import Details from './src/screens/Details';
+
+const Stack = createNativeStackNavigator();
 
 
 export default function App() {
@@ -15,25 +17,18 @@ export default function App() {
   });
 
   if (!loaded) {
-    return <Text>
-      null
-    </Text>;
+    return !null;
   }
 
   return (
-    <View style={styles.container}>
-      <Text preset='h1'>Open up App.js to start working on your app!</Text>
-      <Text preset='h1' style={{ color: colors.purple, marginTop: spacing[6] }}>Hello World</Text>
+    <>
+      <NavigationContainer theme={DarkTheme}>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Details" component={Details} />
+        </Stack.Navigator>
+      </NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
