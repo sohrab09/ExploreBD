@@ -1,29 +1,60 @@
 // Todo
-// 1. District Name
-// 2. District Image
-// 3. District Description
-// 4. District Location
-// 5. District Map
-// 6. District Tourist Spots
-// 7. Under the Division
-// 8. District Population
-// 9. District Area
-// 10. District Upazila
-// 11. District Unions
-// 12. District Police Station
-// 13. District Post Office
-// 14. District Hospitals
-// 15. District Schools
-// 16. District Colleges
+// name: "",
+// image: "",
+// description: "",
+// location: "",
+// map: "",
+// touristSpots: "",
+// populations: "",
+// area: "",
+// upazila: "",
+// unions: "",
+// policeStation: "",
+// postOffice: "",
+// govtHospital: "",
+// govtSchools: "",
+// govtCollege: "",
+// govtUniversity: "",
+// govtPolytechnicInstitute: "",
+// govtMedicalCollege: "",
+// wikiLink: "",
+// underDivision: "",
+// pourosova: "",
+// village: "",
+// educationRate: "",
+// parliamentarySeat: "",
 
 
 
 export const DISTRICT_LIST = [
 
-    // {
-    //     color: "#ECAD7A",
-    //     name: "Dhaka",
-    // },
+    {
+        color: "#ECAD7A",
+        name: "Dhaka",
+        image: "",
+        description: "",
+        location: "",
+        map: "",
+        touristSpots: "",
+        populations: "",
+        area: "",
+        upazila: "",
+        unions: "",
+        policeStation: "",
+        postOffice: "",
+        govtHospital: "",
+        govtSchools: "",
+        govtCollege: "",
+        govtUniversity: "",
+        govtPolytechnicInstitute: "",
+        govtMedicalCollege: "",
+        wikiLink: "",
+        underDivision: "",
+        pourosova: "",
+        village: "",
+        educationRate: "",
+        parliamentarySeat: "",
+    },
     {
         color: "#DEF4FC",
         name: "Chittagong",
