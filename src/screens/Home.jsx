@@ -31,7 +31,7 @@ export default function Home({ navigation }) {
             <View>
                 <TextInput
                     style={styles.input}
-                    placeholder="Search Your District"
+                    placeholder="Search Your District Name"
                     placeholderTextColor={colors.white}
                     autoCorrect={false}
                     onChangeText={(text) => searchFilter(text)}
@@ -44,7 +44,7 @@ export default function Home({ navigation }) {
                 renderItem={({ item, index }) => {
                     const { name, color } = item;
                     return (
-                        <Pressable onPress={() => {
+                        <Pressable key={index} onPress={() => {
                             navigation.navigate('Details', { item })
                         }} style={styles.item}>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -69,16 +69,12 @@ const styles = StyleSheet.create({
         backgroundColor: colors.black,
         padding: spacing[5]
     },
-
     input: {
         color: colors.white,
         borderBottomColor: colors.white,
-        borderBottomWidth: 0.2,
-        margin: spacing[5]
-    },
-
-    list: {
-        padding: spacing[4]
+        borderBottomWidth: 0.5,
+        margin: spacing[5],
+        textAlign: 'center'
     },
     item: {
         flexDirection: 'row',
@@ -96,8 +92,8 @@ const styles = StyleSheet.create({
         marginLeft: spacing[4]
     },
     separator: {
-        height: 1,
-        backgroundColor: colors.white,
+        borderBottomColor: colors.white,
+        borderBottomWidth: 0.5,
         marginHorizontal: spacing[4]
     }
 });

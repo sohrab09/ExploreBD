@@ -23,7 +23,7 @@ export default function ExploreBDHeader({ backBtn, title = 'Explore BD' }) {
                     </Pressable>
                 )
             }
-            <Text preset='h2'>{title}</Text>
+            <Text preset='h1'>{title}</Text>
 
         </View >
     )
