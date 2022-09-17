@@ -5,7 +5,9 @@ import ExploreBDHeader from '../components/ExploreBD-header';
 import { spacing } from './../theme/spacing';
 import { colors } from './../theme/colors';
 
-export default function Details({ navigation }) {
+export default function Details({ navigation, route }) {
+    const item = route.params.item;
+    // console.log("item", item);
     return (
         <View style={styles.container}>
             <ExploreBDHeader backBtn={true} />

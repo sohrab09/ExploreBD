@@ -1,4 +1,4 @@
-import { StyleSheet, View, FlatList, Pressable } from 'react-native';
+import { StyleSheet, View, FlatList, Pressable, TextInput } from 'react-native';
 import React from 'react'
 import Text from '../components/text/text'
 import ExploreBDHeader from '../components/ExploreBD-header';
@@ -9,22 +9,47 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 export default function Home({ navigation }) {
+
+    const [list, setList] = React.useState(DISTRICT_LIST);
+
+    const searchFilter = (text) => {
+        const filteredList = DISTRICT_LIST.filter(item => {
+            const itemName = item.name.toLowerCase();
+            const useTypedText = text.toLowerCase();
+
+            return itemName.indexOf(useTypedText) > -1;
+        });
+
+        setList(filteredList);
+
+    }
+
+
     return (
         <View style={styles.container}>
             <ExploreBDHeader />
+            <View>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Search Your District"
+                    placeholderTextColor={colors.white}
+                    autoCorrect={false}
+                    onChangeText={(text) => searchFilter(text)}
+                />
+            </View>
             <FlatList
                 contentContainerStyle={styles.list}
-                data={DISTRICT_LIST}
+                data={list}
                 keyExtractor={(item) => item.name}
                 renderItem={({ item, index }) => {
                     const { name, color } = item;
                     return (
                         <Pressable onPress={() => {
-                            navigation.navigate('Details')
+                            navigation.navigate('Details', { item })
                         }} style={styles.item}>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                 <View style={[styles.circle, { backgroundColor: color }]} />
-                                <Text preset='h3' style={styles.itemName}>{index + 1} - {name}</Text>
+                                <Text preset='h3' style={styles.itemName}>{name}</Text>
                             </View>
                             <View>
                                 <AntDesign name="right" size={18} color="white" />
@@ -44,6 +69,14 @@ const styles = StyleSheet.create({
         backgroundColor: colors.black,
         padding: spacing[5]
     },
+
+    input: {
+        color: colors.white,
+        borderBottomColor: colors.white,
+        borderBottomWidth: 0.2,
+        margin: spacing[5]
+    },
+
     list: {
         padding: spacing[4]
     },
